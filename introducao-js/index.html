@@ -22,16 +22,25 @@
         }
     </style>
 
+    <!-- 
+        this  -> passa a tag atual
+        event -> passa o evento gerado  
+    -->
     <input 
         type="text" 
         name="usuario" 
         id="loginUsuario" 
         placeholder="Usuário"
+        onkeyup="validarDigitacao(this)"  
+        value=""
         >
 
     <input type="password" name="senha" id="loginSenha" placeholder="Senha">
     
     <button onclick="exibir()">Entrar</button>
+
+    <div id="introducao-js-imagem-nezuko"></div>
+    
 
     <p>
         Leia o 
@@ -43,14 +52,20 @@
         .
     </p>
 
-    <span id="exibirDadosLogin"></span>
+    <span id="introducao-js-exibir-dados-login"></span>
 
 
     <script>
         //função exibir versão 1.0
         function exibir(){
-            console.log("oi! cheguei!");
-            alert("eu sou um alert");
+            let tagDiv = document.getElementById("introducao-js-imagem-nezuko");
+            tagDiv.innerHTML = '<img src="./nezuko.jpg" alt="nezuko">'
+        }
+        
+        function validarDigitacao(abacaxi) {
+            console.log(abacaxi.value);
+            let tagSpan = document.getElementById("introducao-js-exibir-dados-login");
+            tagSpan.innerHTML = abacaxi.value;
         }
     </script>
 </body>
