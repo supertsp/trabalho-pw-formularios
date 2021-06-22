@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fomulários & JavaScript</title>
+</head>
+<body>
+
+    <form action="" method="GET" onsubmit="onClickEntrar(event)">
+       
+        <input 
+                type="email" 
+                name="usuario" 
+                id="form-e-javascript-usuario"
+                placeholder="e-mail">
+
+        <input 
+                type="password" 
+                name="senha" 
+                id="form-e-javascript-senha"
+                placeholder="senha">
+ 
+        <input 
+                type="submit" 
+                value="Entrar" 
+                id="form-e-javascript-entrar"
+                >
+
+    </form>
+
+    <div id="form-e-javascript-resultado"></div>
+
+    <script>
+        function onClickEntrar(meuEvento) {            
+            meuEvento.preventDefault();
+            
+            let tagUsuario = document.getElementById("form-e-javascript-usuario");
+            let tagSenha = document.getElementById("form-e-javascript-senha");
+            let tagResultado = document.getElementById("form-e-javascript-resultado");
+            let resultado = "" + 
+                "Você tentou logar com os seguintes dados <br>" +
+                "Usuário: " + tagUsuario.value + "<br>" +
+                "Senha: " + tagSenha.value + "<br>" +
+                "Senha (Base 64): " + btoa(tagSenha.value)
+            ;
+            tagResultado.innerHTML = resultado;
+        }
+    </script>
+
+</body>
+</html>
